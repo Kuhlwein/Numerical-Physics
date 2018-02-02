@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 	printf("%Lg (LDBL_EPSILON)\n\n",LDBL_EPSILON);
 	
 	//2 - i
-	int max = INT_MAX/3;
+	int max = INT_MAX/2;
 	float sum_up_float = 0;
 	for (int i = 1; i < max; ++i) {sum_up_float+=1./i;}
 	printf("%g (sum_up_float)\n", sum_up_float);
@@ -61,8 +61,17 @@ int main(int argc, char *argv[])
 	printf("For the up-sum the smallest numbers get rounded when added to a big number\n\n");
 
 	//2 - iii
-	printf("The sum does not converge as a function of max past the point where 1/max gets rounded to 0 when added to the sum\n\n");
-
+	printf("The sums converge when max is big enough that the smallest numbers gets rounded to 0 when added to the sum\n\n");
 	
+	//2 - iiii
+	double sum_up_double = 0;
+	for (int i = 1; i < max; ++i) {sum_up_double+=1./i;}
+	printf("%.20g (sum_up_double)\n", sum_up_double);
+	double sum_down_double = 0;
+	for (int i = max; i > 0; --i) {sum_down_double+=1./i;}
+	printf("%.20g (sum_down_double)\n\n", sum_down_double);
+	
+	printf("The problem  persists, but is now much less significant\n");
+
 	return 0;
 }
