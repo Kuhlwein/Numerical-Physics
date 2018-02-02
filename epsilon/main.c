@@ -55,7 +55,14 @@ int main(int argc, char *argv[])
 	printf("%g (sum_up_float)\n", sum_up_float);
 	float sum_down_float = 0;
 	for (int i = max; i > 0; --i) {sum_down_float+=1./i;}
-	printf("%g (sum_up_float)\n", sum_down_float);
+	printf("%g (sum_down_float)\n\n", sum_down_float);
+
+	//2 - ii
+	printf("For the up-sum the smallest numbers get rounded when added to a big number\n\n");
+
+	//2 - iii
+	printf("The sum does not converge as a function of max past the point where 1/max gets rounded to 0 when added to the sum\n\n");
+
 	
 	return 0;
 }
