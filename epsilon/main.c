@@ -47,5 +47,15 @@ int main(int argc, char *argv[])
 	for (z = 1; 1+z/2!=1; z/=2) {}
 	printf("%Lg (forloop method)\n", z);
 	printf("%Lg (LDBL_EPSILON)\n\n",LDBL_EPSILON);
+	
+	//2 - i
+	int max = INT_MAX/3;
+	float sum_up_float = 0;
+	for (int i = 1; i < max; ++i) {sum_up_float+=1./i;}
+	printf("%g (sum_up_float)\n", sum_up_float);
+	float sum_down_float = 0;
+	for (int i = max; i > 0; --i) {sum_down_float+=1./i;}
+	printf("%g (sum_up_float)\n", sum_down_float);
+	
 	return 0;
 }
