@@ -1,0 +1,7 @@
+#include <math.h>
+
+int equal(double a, double b, double tau, double epsilon) {
+	if(fabs(a-b)<tau) return 3;
+	if(fabs(a-b)/(fabs(a)+fabs(b))<epsilon/2) return 4;
+	return 0;
+}

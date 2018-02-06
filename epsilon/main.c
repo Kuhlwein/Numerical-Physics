@@ -2,6 +2,7 @@
 #include <math.h>
 #include <limits.h>
 #include <float.h>
+#include "equal.h"
 
 int main(int argc, char *argv[])
 {
@@ -72,6 +73,8 @@ int main(int argc, char *argv[])
 	printf("%.20g (sum_down_double)\n\n", sum_down_double);
 	
 	printf("The problem  persists, but is now much less significant\n");
-
+	
+	//3
+	printf("equal(): %i\n",equal(1,1,1,1));
 	return 0;
 }
