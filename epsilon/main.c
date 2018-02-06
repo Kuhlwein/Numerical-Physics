@@ -72,9 +72,9 @@ int main(int argc, char *argv[])
 	for (int i = max; i > 0; --i) {sum_down_double+=1./i;}
 	printf("%.20g (sum_down_double)\n\n", sum_down_double);
 	
-	printf("The problem  persists, but is now much less significant\n");
+	printf("The problem  persists, but is now much less significant\n\n");
 	
 	//3
-	printf("equal(): %i\n",equal(1,1,1,1));
+	printf("equal(1,1,1,1): %i\n",equal(1,1,1,1));
 	return 0;
 }
