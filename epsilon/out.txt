@@ -1,0 +1,38 @@
+2147483647 (while method)
+2147483647 (dowhile method)
+2147483647 (forloop method)
+2147483647 (INT_MAX)
+
+-2147483648 (while method)
+-2147483648 (dowhile method)
+-2147483648 (forloop method)
+-2147483648 (INT_MIN)
+
+1.19209e-07 (while method)
+1.19209e-07 (dowhile method)
+1.19209e-07 (forloop method)
+1.19209e-07 (FLT_EPSILON)
+
+2.22045e-16 (while method)
+2.22045e-16 (dowhile method)
+2.22045e-16 (forloop method)
+2.22045e-16 (DBL_EPSILON)
+
+1.0842e-19 (while method)
+1.0842e-19 (dowhile method)
+1.0842e-19 (forloop method)
+1.0842e-19 (LDBL_EPSILON)
+
+15.4037 (sum_up_float)
+18.8079 (sum_down_float)
+
+For the up-sum the smallest numbers get rounded when added to a big number
+
+The sums converge when max is big enough that the smallest numbers gets rounded to 0 when added to the sum
+
+21.371631080303572503 (sum_up_double)
+21.371631081232081328 (sum_down_double)
+
+The problem  persists, but is now much less significant
+
+equal(1,1,1,1): 1
