@@ -1,0 +1,21 @@
+
+testing nvector_alloc...
+test passed
+
+testing nvector_set and nvector_get...
+test passed
+
+testing nvector_add...
+a+b should   =  1.177482 1.710087 0.532774 1.046004 1.031367 
+a+b actually =  1.177482 1.710087 0.532774 1.046004 1.031367 
+test passed
+
+testing nvector_sub...
+a-b should   =  0.264086 -0.438829 0.280483 0.575694 0.590668 
+a-b actually =  0.264086 -0.438829 0.280483 0.575694 0.590668 
+test passed
+
+testing nvector_dot...
+a*b should   = 0.111951
+a*b actually = 0.111951
+test passed
