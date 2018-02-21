@@ -3,9 +3,15 @@ LDLIBS = $$(gsl-config --libs)
 
 .PHONEY : all
 
-all : main plot.svg
+all : main plot.svg out.txt
+	cat out.txt
+
+out.txt : main-linalg
+	./main-linalg > out.txt
 
 main : main.c
+
+main-linalg : main-linalg.c
 
 dat.txt : main
 	./main > dat.txt

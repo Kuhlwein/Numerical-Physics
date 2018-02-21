@@ -1,0 +1,8 @@
+Solution is:
+-1.136748
+-2.828223
+0.852632
+Granting original rightside:
+6.230000
+5.370000
+2.290000
