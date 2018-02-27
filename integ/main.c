@@ -9,7 +9,6 @@ double integrand(double x, void* params) {
 
 int main(int argc, char *argv[])
 {
-	//exercise 1
 	gsl_function f;
 	f.function = integrand;
 	int limit = 100;
@@ -18,9 +17,5 @@ int main(int argc, char *argv[])
 	int status = gsl_integration_qags(&f,0,1,1e-6,1e-6,limit,workspace,&result,&err);
 	if (status!=GSL_SUCCESS) err=NAN;
 	printf("int_0^1 ln(x)/sqrt(x) dx=%f\n", result);
-
-
-	
-
 	return 0;
 }
