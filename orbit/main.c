@@ -9,7 +9,6 @@ int equation(double x, const double y[], double dydx[], void * params) {
 	return GSL_SUCCESS;
 }
 
-
 int main(int argc, char *argv[])
 {
 	//Exercise 1
@@ -37,6 +36,5 @@ int main(int argc, char *argv[])
 
 	gsl_odeiv2_driver_free (driver);
 	
-
 	return 0;
 }
