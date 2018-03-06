@@ -1,0 +1,4 @@
+set terminal pdf
+set output "plot.pdf"
+plot "out2.txt" using ($1):($2) with points title "data", "out2.txt" using ($1):($3) with lines title "fit"
+
