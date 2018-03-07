@@ -3,7 +3,7 @@
 #include <gsl/gsl_errno.h>
 #include <math.h>
 
-double rosenbrock(const gsl_vector* v, void* params, gsl_vector* f) {
+double rosenbrock(const gsl_vector* v, void* params) {
 	double x = gsl_vector_get(v,0), y = gsl_vector_get(v,1);
 	return pow((1-x),2)+100*pow((y-pow(x,2)),2);
 }
