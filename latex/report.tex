@@ -1,0 +1,37 @@
+\documentclass[a4paper,twocolumn]{article}
+\usepackage{amsmath,amssymb}
+
+\title{The error function}
+\date{}
+\author{Morten Kuhlwein}
+\begin{document}
+	\maketitle
+
+\section{copied from wikipedia}
+	In mathematics, the error function (also called the Gauss error function) is a special function (non-elementary) of sigmoid shape that occurs in probability, statistics, and partial differential equations describing diffusion. It is defined as:
+
+	\begin{equation}
+	\begin{split}
+		\mathrm{erf} (x) &= \frac{1}{\sqrt{\pi}} \int_{-x}^{x} e^{- t^{2}} \mathop{\mathrm{d} t}\\
+		&= \frac{2}{\sqrt{\pi}} \int_{0}^{x} e^{- t^{2}} \mathop{\mathrm{d} t}
+	\end{split}
+	\end{equation}
+	
+
+
+In statistics, for nonnegative values of x, the error function has the following interpretation: for a random variable Y that is normally distributed with mean 0 and variance 1/2, erf(x) describes the probability of Y falling in the range [−x, x].
+
+The name and abbreviation for the error function (and the error function complement) were developed by J. W. L. Glaisher in 1871 on account of its connection with "the theory of Probability, and notably the theory of Errors." Glaisher cites that, for the "law of facility" of errors—the normal distribution—whose density is given by $ f (x) = \left( \frac{c}{\pi} \right)^{1/2} e^{- c x^{2}} $, the chance of an error lying between $ p $ and $ q $ is
+\begin{equation}
+	\left( \frac{c}{\pi}\right)^{1/2} \int_{p}^{q} e^{- c x^{2}} \mathop{\mathrm{d} x} = \frac{1}{2} \left( \mathrm{erf} \left( q \sqrt{c} \right) - \mathrm{erf} \left( p \sqrt{c} \right) \right). 
+\end{equation}
+
+
+
+	\begin{figure}
+		\centering
+		\input{plot.tex}
+		\caption{Errorfunction from -3 to 3}
+		\label{fig:plot}
+	\end{figure}
+\end{document}
