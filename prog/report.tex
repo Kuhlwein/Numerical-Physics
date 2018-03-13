@@ -1,0 +1,31 @@
+\documentclass[a4paper,twocolumn]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{kpfonts}
+
+\title{The Bessel function of the first kind}
+\date{}
+\author{Morten Kuhlwein}
+\setlength\parindent{0pt}
+
+\begin{document}
+	\maketitle
+	\section*{Exercise 25}
+	In this exercise the Bessel function of the first kind of integer index is implemented.
+	For this purpose the integral representation of the Besselfunction is used:
+	\begin{equation}
+		J_{n} (x) = \frac{1}{\pi} \int_{0}^{\pi} \cos{(n t - x \sin{(t)})} \mathop{\mathrm{d} t}.
+	\end{equation}
+	
+	Given an integer index $ n $, and a value $ x $, the value of $ J_{n} (x) $ can be found by solving the integral.
+	For this purpose the numerical integration routines from the Gnu Scientific Library is used.
+
+	The Bessel functions for the integer indexes $ n = 1, 2 $ and $ 3 $ found using this method can be found on figure \ref{fig:plot}, along with values calculated using the built-in Bessel functions from {\tt<math.h>}.
+
+
+	\begin{figure*}[t]
+		\centering
+		\input{plot.tex}
+		\caption{Comparison of the calculated Bessel functions and the functions from {\tt<math.h>}.}
+		\label{fig:plot}
+	\end{figure*}
+\end{document}
