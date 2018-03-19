@@ -2,3 +2,6 @@
 questions/*
 */main
 *.o
+*.aux
+*.dvi
+*.log
