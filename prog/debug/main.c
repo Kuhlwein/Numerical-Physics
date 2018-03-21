@@ -18,5 +18,5 @@ int main(void)
 	else
 		printf("status=%i : everything went just fine (status>=0)\n",status);
 	gsl_matrix_free(m);
-return 0;
+	return 0;
 }

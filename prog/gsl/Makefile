@@ -18,3 +18,6 @@ dat.txt : main
 
 plot.svg : plot.gpi dat.txt
 	gnuplot plot.gpi
+
+clean :
+	$(RM) main main-linalg out.txt plot.tex report.aux report.dvi report.log report.pdf dat.txt plot.svg

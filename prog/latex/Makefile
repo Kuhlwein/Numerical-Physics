@@ -1,7 +1,7 @@
 CFLAGS = -Wall -std=gnu99  $$(gsl-config --cflags)
 LDLIBS = $$(gsl-config --libs)
 
-.PHONEY : all
+.PHONEY : all clean
 
 all : main out.txt plot.tex report.pdf
 	cat out.txt
@@ -18,3 +18,6 @@ plot.tex : plot.gpi
 	gnuplot plot.gpi
 
 main : main.c
+
+clean :
+	$(RM) main *.o out.txt report.pdf plot.tex
