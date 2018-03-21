@@ -9,7 +9,7 @@ all : out.txt
 out.txt : main
 	./main > out.txt
 
-main : main.o qr_gramschmidt.o
+main : main.o qr_decomp.o
 
 clean:
 	find . -type f -executable -delete
