@@ -1,5 +1,7 @@
 #include <armadillo>
 
+void backsub(const arma::mat &U, arma::vec &c);
+
 void qr_gs_decomp(arma::mat &A, arma::mat &R);
 void qr_gs_solve(const arma::mat &Q, const arma::mat &R, arma::vec &b);
 void qr_gs_inverse(const arma::mat &Q, const arma::mat &R, arma::mat &B);
