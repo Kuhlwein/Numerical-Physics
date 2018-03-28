@@ -80,10 +80,10 @@ void qr_givens_getR(const arma::mat &QR, arma::mat &R) {
 }
 
 void qr_givens_getQ(const arma::mat &QR, arma::mat &Q) {
-	Q.eye();
+	vec ei(Q.n_rows);
 	for(int i=0;i<QR.n_rows;i++) {
-		vec ei = Q.unsafe_col(i);
+		ei.fill(0); ei[i]=1;
 		qr_givens_QTvec(QR,ei);
+		for(int j=0; j<QR.n_cols; j++) Q(i,j) = ei(j);
 	}
-	Q=Q.t();
 }
