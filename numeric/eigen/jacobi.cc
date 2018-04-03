@@ -40,12 +40,10 @@ int jacobi_cyclic(mat &A, mat &V, vec &v) {
 int jacobi_vbv(mat &A, mat &V, vec &v, int n) {
 	V.eye();
 	int rotations = 0, rotations_old = 0;
-	for(int p=0; p<n; p++) {
-		do {
+	for(int p=0; p<n; p++) do {
 			rotations_old = rotations;
 			for(int q=p+1; q<A.n_cols; q++) rotations += rotate(A,V,p,q);
 		} while(rotations_old != rotations);
-	}
 	v=A.diag();
 	return rotations;
 }
