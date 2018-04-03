@@ -1,0 +1,29 @@
+set terminal pdf size 6,3
+set output "plot.pdf"
+set key left top
+
+set title "value-by-value rotations"
+set xlabel "matrix dimension"
+set ylabel "rotations"
+plot "dat.txt" index 0 using ($1):($2) with lines title "cyclic",\
+"dat.txt" index 0 using ($1):($4) with lines title "value-by-value: first value",\
+"dat.txt" index 0 using ($1):($6) with lines title "value-by-value: all values",\
+
+set title "value-by-value time"
+set xlabel "matrix dimension"
+set ylabel "time [ms]"
+plot "dat.txt" index 0 using ($1):($3) with lines title "cyclic",\
+"dat.txt" index 0 using ($1):($5) with lines title "value-by-value: first value",\
+"dat.txt" index 0 using ($1):($7) with lines title "value-by-value: all values",\
+
+set title "classic rotations"
+set xlabel "matrix dimension"
+set ylabel "rotations"
+plot "dat.txt" index 1 using ($1):($2) with lines title "cyclic",\
+"dat.txt" index 1 using ($1):($4) with lines title "classic",\
+
+set title "classic time"
+set xlabel "matrix dimension"
+set ylabel "time [ms]"
+plot "dat.txt" index 1 using ($1):($3) with lines title "cyclic",\
+"dat.txt" index 1 using ($1):($5) with lines title "classic",\
