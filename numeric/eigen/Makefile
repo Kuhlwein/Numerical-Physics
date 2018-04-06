@@ -1,4 +1,4 @@
-CXXFLAGS = -std=c++11 -Wall
+CXXFLAGS = -std=c++11 -Wall -DARMA_NO_DEBUG -O3
 LDLIBS = -lstdc++ -lm -larmadillo
 
 .PHONY: clean all

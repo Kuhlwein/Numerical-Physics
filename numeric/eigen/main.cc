@@ -10,7 +10,6 @@ int main() {
 	Ao = symmatu(Ao); A=Ao;
 	vec v(5);
 	jacobi_cyclic(A,V,v);
-
 	cout << "Let A be a symmetric matrix:\n" << Ao << "\n";
 	cout << "Using jacobi_cyclic, V is found to be:\n" << V << "\n";
 	cout << "The eigenvalues are found to:\n" << v << "\n";
@@ -18,7 +17,6 @@ int main() {
 
 	A=Ao;
 	jacobi_vbv(A,V,v,5);
-
 	cout << "For jacobi_vbv for all five values, we find Vt*A*V=D:\n" << V.t()*Ao*V << "\n";
 
 	A=Ao;

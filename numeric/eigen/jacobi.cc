@@ -13,7 +13,7 @@ int rotate(mat &A, mat &V,int p, int q) {
 	if(app_new==A(p,p) && aqq_new==A(q,q)) return 0;
 	
 	for(int i=0; i<A.n_cols; i++) {
-		int ip=min(i,p), jp=max(i,p), iq=min(i,q), jq=max(i,q); 
+		int ip=min(i,p), jp=max(i,p), iq=min(i,q), jq=max(i,q);
 		double aip=A(ip,jp), aiq=A(iq,jq);
 		A(ip,jp)=c*aip-s*aiq; A(iq,jq)=c*aiq+s*aip;
 	}
@@ -64,7 +64,7 @@ int jacobi_classic(mat &A, mat &V, vec &v) {
 		int pmax = 0;
 		for(int p=0; p<A.n_cols-1; p++) if(abs(A(p,maxind[p]))>abs(A(pmax,maxind[pmax]))) pmax=p;
 		rotations += rotate(A,V,pmax,maxind[pmax]);
-		for(int p=0; p<=pmax;  p++) if(maxind[p]==maxind[pmax]) maxind[p]=rowmax(A,p);
+		for(int p=0; p<=pmax; p++) if(maxind[p]==maxind[pmax]) maxind[p]=rowmax(A,p);
 	} while(rotations_old != rotations);
 	v=A.diag();
 	return rotations;

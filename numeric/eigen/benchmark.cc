@@ -7,10 +7,10 @@ using namespace std;
 using namespace arma;
 
 int main() {
-	int N = 15, dN = 10, time, rotations;
+	int N = 15, dN = 20, time, rotations;
 	for(int n=dN; n<=N*dN; n+=dN) {
-		mat A(n,n,fill::randu), Ac=A, V=A, Vc=V;
-		vec v(n,fill::randu), vc=v;
+		mat A(n,n,fill::randn), Ac=A, V=A, Vc=V;
+		vec v(n,fill::randn), vc=v;
 		clock_t start, stop;
 		cout << n << "\t";
 
@@ -36,10 +36,10 @@ int main() {
 		cout << rotations << "\t" << time << "\n";
 	}
 	cout << "\n\n";
-	N = 10; dN = 25;
+	N = 10; dN = 50;
 	for(int n=dN; n<=N*dN; n+=dN) {
-		mat A(n,n,fill::randu), Ac=A, V=A, Vc=V;
-		vec v(n,fill::randu), vc=v;
+		mat A(n,n,fill::randn), Ac=A, V=A, Vc=V;
+		vec v(n,fill::randn), vc=v;
 		clock_t start, stop;
 		cout << n << "\t";
 

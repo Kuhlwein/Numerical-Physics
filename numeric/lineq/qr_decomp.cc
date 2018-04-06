@@ -37,27 +37,23 @@ void qr_gs_inverse(const mat &Q, const mat &R, mat &B) {
 }
 
 void qr_givens_decomp(mat &A) {
-	for(int q=0;q<A.n_cols;q++) {
-		for(int p=q+1;p<A.n_rows;p++) {
-			double theta=atan2(A(p,q),A(q,q));
-			for(int k=q; k<A.n_cols; k++) {
-				double xq=A(q,k), xp=A(p,k);
-				A(q,k) = xq*cos(theta)+xp*sin(theta);
-				A(p,k) = -xq*sin(theta)+xp*cos(theta);
-			}
-			A(p,q) = theta;
+	for(int q=0;q<A.n_cols;q++) for(int p=q+1;p<A.n_rows;p++) {
+		double theta=atan2(A(p,q),A(q,q));
+		for(int k=q; k<A.n_cols; k++) {
+			double xq=A(q,k), xp=A(p,k);
+			A(q,k) = xq*cos(theta)+xp*sin(theta);
+			A(p,k) = -xq*sin(theta)+xp*cos(theta);
 		}
+		A(p,q) = theta;
 	}
 }
 
 void qr_givens_QTvec(const mat &QR, vec &b) {
-	for(int q=0; q<QR.n_cols;q++) {
-		for(int p=q+1;p<QR.n_rows;p++) {
-			double theta = QR(p,q);
-			double bq=b(q), bp=b(p);
-			b(q)=bq*cos(theta)+bp*sin(theta);
-			b(p)=-bq*sin(theta)+bp*cos(theta);
-		}
+	for(int q=0; q<QR.n_cols;q++) for(int p=q+1;p<QR.n_rows;p++) {
+		double theta = QR(p,q);
+		double bq=b(q), bp=b(p);
+		b(q)=bq*cos(theta)+bp*sin(theta);
+		b(p)=-bq*sin(theta)+bp*cos(theta);
 	}
 }
 
