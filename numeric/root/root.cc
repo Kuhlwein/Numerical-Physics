@@ -8,7 +8,7 @@ using namespace arma;
 void newton(function<vec(vec)> f, vec &x, double dx, double eps) {
 	int n=x.n_rows;
 	mat J(n,n);
-	vec fx=f(x), Dx, df, y, fy;
+	vec fx=f(x), Dx, df;
 	do {
 		for(int j=0; j<n; j++) {
 			x(j)+=dx;
