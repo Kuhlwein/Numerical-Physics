@@ -8,7 +8,7 @@ using namespace arma;
 
 void lsfit(const vec &x, const vec &y, const vec &dy,
 		const vector<function<double(double)>> &funs, vec &b, mat &S) {
-	int n=x.n_rows, m=(int)funs.size();
+	int n=x.n_rows, m=funs.size();
 	mat A(n,m,fill::zeros), R(m,m), Q(n,m);
 	b=y/dy;
 	for(int i=0; i<n; i++) for(int k=0; k<m; k++) A(i,k)=funs[k](x[i])/dy[i];
@@ -20,7 +20,7 @@ void lsfit(const vec &x, const vec &y, const vec &dy,
 	S = R.i()*R.i().t();
 }
 
-void singular_decomp(const mat A, mat &U, mat &V, mat &Sigma) {
+void singular_decomp(const mat &A, mat &U, mat &V, mat &Sigma) {
 	mat AtA = A.t()*A; vec v(3);
 	jacobi_classic(AtA,V,v);
 	Sigma.diag() = pow(v,0.5);
@@ -29,8 +29,8 @@ void singular_decomp(const mat A, mat &U, mat &V, mat &Sigma) {
 
 void lsfit_singular(const vec &x, const vec &y, const vec &dy,
 		const vector<function<double(double)>> &funs, vec &b, mat &S) {
-	int n=x.n_rows, m=(int)funs.size();
-	mat A(n,m,fill::zeros), U, V(3,3), D(3,3,fill::zeros), sigma(3,3,fill::zeros);
+	int n=x.n_rows, m=funs.size();
+	mat A(n,m,fill::zeros), U, V(3,3), sigma(3,3,fill::zeros);
 	b=y/dy;
 	for(int i=0; i<n; i++) for(int k=0; k<m; k++) A(i,k)=funs[k](x[i])/dy[i];
 	
