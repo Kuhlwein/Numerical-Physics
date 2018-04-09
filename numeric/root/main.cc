@@ -11,7 +11,7 @@ int main() {
 		return x;
 	};
 
-	vec a = {10};
+	vec a = {10, 5};
 	newton(f,a,1e-3,1e-7);
 
 	cout << a << "\n";

@@ -7,15 +7,10 @@ using namespace arma;
 
 void newton(function<vec(vec)> f, vec &x, double dx, double eps) {
 	int n=x.n_rows;
-	mat J(n,n);
+	mat J(n,n), I(n,n,fill::eye);
 	vec fx=f(x), Dx, df;
 	do {
-		for(int j=0; j<n; j++) {
-			x(j)+=dx;
-			df=f(x)-fx;
-			for(int i=0; i<n; i++) J(i,j)=df(i)/dx;
-			x(j)-=dx;
-		}
+		for(int j=0; j<n; j++) J.col(j)=(f(x+I.col(j)*dx)-f(x))/dx;
 		qr_givens_decomp(J);
 		Dx=-fx;
 		qr_givens_solve(J,Dx);
