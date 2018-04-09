@@ -1,6 +1,7 @@
 #include <armadillo>
 #include <vector>
 #include <functional>
+#include "lsfit.h"
 #include "../lineq/qr_decomp.h"
 #include "../eigen/jacobi.h"
 using namespace std;
