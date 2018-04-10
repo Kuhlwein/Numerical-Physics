@@ -1,3 +1,32 @@
-   2.8284
-        0
+Newtons method with back-tracking linesearch and numerical jacobian:
+	The system of equations A*x*y=1 and exp(-x)+exp(-y)=1+1/A is solved for A=1e4,
+	using root-finding on f(x,y)=(A*x*y-1,exp(-x)+exp(-y)-1-1/A) in 670 function calls:
+	x=9.10615
+	y=1.09816e-05
+
+	The minimum for the rosenbrock function f(x,y)=(1-x)^2+100(y-x^2)^2 is found,
+	using root-finding on the gradient in 1503 function calls:
+	x=0.999885
+	y=0.999771
+
+	The minimum for the himmelblau function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2 is found,
+	using root-finding on the gradient in 25 function calls:
+	x=-0.270845
+	y=-0.923039
+
+Newtons method with back-tracking linesearch and analytical jacobian:
+	The system of equations A*x*y=1 and exp(-x)+exp(-y)=1+1/A is solved for A=1e4,
+	using root-finding on f(x,y)=(A*x*y-1,exp(-x)+exp(-y)-1-1/A) in 83 function calls:
+	x=9.10615
+	y=1.09816e-05
+
+	The minimum for the rosenbrock function f(x,y)=(1-x)^2+100(y-x^2)^2 is found,
+	using root-finding on the gradient in 1724 function calls:
+	x=1
+	y=1
+
+	The minimum for the himmelblau function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2 is found,
+	using root-finding on the gradient in 13 function calls:
+	x=-0.270845
+	y=-0.923039
 

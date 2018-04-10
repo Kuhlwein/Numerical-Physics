@@ -34,43 +34,43 @@ function<mat(vec)> himmelblauJ = [&c](vec v) {
 };
 vec a;
 
+void printeq(int c,vec a) {
+	cout << "\tThe system of equations A*x*y=1 and exp(-x)+exp(-y)=1+1/A is solved for A=1e4,\n\t"
+		<< "using root-finding on f(x,y)=(A*x*y-1,exp(-x)+exp(-y)-1-1/A) in "
+		<< c << " function calls:\n\tx="<<a(0)<<"\n\ty="<<a(1)<<"\n\n";
+}
+void printrosen(int c,vec a) {
+	cout << "\tThe minimum for the rosenbrock function f(x,y)=(1-x)^2+100(y-x^2)^2 is found,\n\t"
+		<< "using root-finding on the gradient in "
+		<< c << " function calls:\n\tx="<<a(0)<<"\n\ty="<<a(1)<<"\n\n";
+}
+void printhimmel(int c,vec a) {
+	cout << "\tThe minimum for the himmelblau function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2 is found,\n\t"
+		<< "using root-finding on the gradient in "
+		<< c << " function calls:\n\tx="<<a(0)<<"\n\ty="<<a(1)<<"\n\n";
+}
+
 int main() {
 	cout << "Newtons method with back-tracking linesearch and numerical jacobian:\n";
 	a = {10, 1};c=0;
 	newton(f,a,1e-3,1e-6);
-	cout << "The system of equations A*x*y=1 and exp(-x)+exp(-y)=1+1/A is solved for A=1e4,\n"
-		<< "using root-finding on f(x,y)=(A*x*y-1,exp(-x)+exp(-y)-1-1/A) in "
-		<< c << " function calls:\nx="<<a(0)<<"\ny="<<a(1)<<"\n\n";
-
+	printeq(c,a);
 	a = {0, 0};c=0;
 	newton(rosenbrock,a,1e-3,1e-6);
-	cout << "The minimum for the rosenbrock function f(x,y) = (1-x)^2+100(y-x^2)^2 is found,\n"
-		<< "using root-finding on the gradient in "
-		<< c << " function calls:\nx="<<a(0)<<"\ny="<<a(1)<<"\n\n";
-
+	printrosen(c,a);
 	a = {0, 0};c=0;
 	newton(himmelblau,a,1e-3,1e-6);
-	cout << "The minimum for the himmelblau function f(x,y) = (x^2+y-11)^2+(x+y^2-7)^2 is found,\n"
-		<< "using root-finding on the gradient in "
-		<< c << " function calls:\nx="<<a(0)<<"\ny="<<a(1)<<"\n\n";
+	printhimmel(c,a);
 
 	cout << "Newtons method with back-tracking linesearch and analytical jacobian:\n";
 	a = {10, 1};c=0;
 	newton_jacobian(f,fJ,a,1e-3,1e-6);
-	cout << "The system of equations A*x*y=1 and exp(-x)+exp(-y)=1+1/A is solved for A=1e4,\n"
-		<< "using root-finding on the gradient in "
-		<< c << " function calls:\nx="<<a(0)<<"\ny="<<a(1)<<"\n\n";
-	
+	printeq(c,a);
 	a = {0, 0};c=0;
 	newton_jacobian(rosenbrock,rosenbrockJ,a,1e-3,1e-6);
-	cout << "The minimum for the rosenbrock function f(x,y) = (1-x)^2+100(y-x^2)^2 is found,\n"
-		<< "using root-finding on the gradient in "
-		<< c << " function calls:\nx="<<a(0)<<"\ny="<<a(1)<<"\n\n";
-	
+	printrosen(c,a);
 	a = {0, 0};c=0;
 	newton_jacobian(himmelblau,himmelblauJ,a,1e-3,1e-6);
-	cout << "The minimum for the himmelblau function f(x,y) = (x^2+y-11)^2+(x+y^2-7)^2 is found,\n"
-		<< "using root-finding on the gradient in "
-		<< c << " function calls:\nx="<<a(0)<<"\ny="<<a(1)<<"\n\n";
+	printhimmel(c,a);
 	return 0;
 }
