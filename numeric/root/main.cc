@@ -91,5 +91,33 @@ int main() {
 	a= {1};c=0;
 	newton(squareroot2,a,1e-3,1e-6,squareroot2J);
 	printsquareroot(c,a);
+	
+	cout << "Newtons method with fancy linesearch and numerical jacobian:\n";
+	a = {0, 1};c=0;
+	newton_fancy(f,a,1e-3,1e-6);
+	printeq(c,a);
+	a = {0, 0};c=0;
+	newton_fancy(rosenbrock,a,1e-3,1e-6);
+	printrosen(c,a);
+	a = {0, 0};c=0;
+	newton_fancy(himmelblau,a,1e-3,1e-6);
+	printhimmel(c,a);
+	a= {1};c=0;
+	newton_fancy(squareroot2,a,1e-3,1e-6);
+	printsquareroot(c,a);
+
+	cout << "Newtons method with fancy linesearch and analytical jacobian:\n";
+	a = {0, 1};c=0;
+	newton_fancy(f,a,1e-3,1e-6,fJ);
+	printeq(c,a);
+	a = {0, 0};c=0;
+	newton_fancy(rosenbrock,a,1e-3,1e-6,rosenbrockJ);
+	printrosen(c,a);
+	a = {0, 0};c=0;
+	newton_fancy(himmelblau,a,1e-3,1e-6,himmelblauJ);
+	printhimmel(c,a);
+	a= {1};c=0;
+	newton_fancy(squareroot2,a,1e-3,1e-6,squareroot2J);
+	printsquareroot(c,a);
 	return 0;
 }
