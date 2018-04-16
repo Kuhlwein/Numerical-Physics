@@ -10,8 +10,8 @@ function<vec(vec)> f = [&c](vec v) {
 	double x=v(0), y=v(1); c++;
 	return vec {10000*x*y-1, exp(-x)+exp(-y)-1-1./10000};
 };
-function<mat(vec)> fJ = [](vec v) {
-	double x=v(0), y=v(1);
+function<mat(vec)> fJ = [&c](vec v) {
+	double x=v(0), y=v(1); c++;
 	return mat {{10000*y, 10000*x},{-exp(-x), -exp(-y)}};
 };
 
@@ -19,8 +19,8 @@ function<vec(vec)> rosenbrock = [&c](vec v) {
 	double x=v(0), y=v(1); c++;
 	return vec {400*(x*x*x-y*x)+2*x-2, 200*(y-x*x)};
 };
-function<mat(vec)> rosenbrockJ = [](vec v) {
-	double x=v(0), y=v(1);
+function<mat(vec)> rosenbrockJ = [&c](vec v) {
+	double x=v(0), y=v(1); c++;
 	return mat {{400*(3*x*x-y)+2, -400*x},{-400*x, 200}};
 };
 
@@ -28,8 +28,8 @@ function<vec(vec)> himmelblau = [&c](vec v) {
 	double x=v(0), y=v(1); c++;
 	return vec {2*(2*x*(x*x+y-11)+x+y*y-7), 2*(x*x+2*y*(x+y*y-7)+y-11)};
 };
-function<mat(vec)> himmelblauJ = [](vec v) {
-	double x=v(0), y=v(1);
+function<mat(vec)> himmelblauJ = [&c](vec v) {
+	double x=v(0), y=v(1); c++;
 	return mat {{12*x*x+4*y-42, 4*(x+y)},{4*(x+y), 4*(x+3*y*y-7)+2}};
 };
 
@@ -37,8 +37,8 @@ function<mat(vec)> squareroot2 = [&c](vec v) {
 	double x=v(0); c++;
 	return vec {x*x-2};
 };
-function<mat(vec)> squareroot2J = [](vec v) {
-	double x=v(0);
+function<mat(vec)> squareroot2J = [&c](vec v) {
+	double x=v(0); c++;
 	return mat {2*x};
 };
 vec a;
