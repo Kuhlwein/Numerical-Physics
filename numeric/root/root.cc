@@ -7,13 +7,12 @@ using namespace arma;
 
 void newton_master(function<vec(vec)> f, function<mat(vec)> jacobi,
 		function<double(vec,vec,vec)> lambda, vec&x, double dx, double eps) {
-	vec fx=f(x), Dx, df;
+	vec fx=f(x), Dx=-fx, df;
 	do {
 		mat J=jacobi(x);
 		qr_givens_decomp(J);
-		Dx=-fx;
 		qr_givens_solve(J,Dx);
-		x=x+Dx*lambda(x,Dx,fx); fx=f(x);
+		x+=Dx*lambda(x,Dx,fx); fx=f(x); Dx=-fx;
 	} while (norm(Dx)>dx && norm(fx)>eps);
 }
 
