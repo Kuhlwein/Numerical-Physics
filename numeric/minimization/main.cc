@@ -35,12 +35,22 @@ function<mat(vec)> Hhimmelblau = [](vec v) {
 
 int main() {
 	vec x = {2,2};
-	newton(rosenbrock,drosenbrock,Hrosenbrock,x,1e-6);
+	newton(rosenbrock,drosenbrock,Hrosenbrock,x,1e-3,1e-6);
 	cout << x << "\n" << c << "\n";
 
 	x = {-1,-1}; c=0;
-	newton(himmelblau,dhimmelblau,Hhimmelblau,x,1e-6);
+	newton(himmelblau,dhimmelblau,Hhimmelblau,x,1e-3,1e-6);
 	cout << x << "\n" << c << "\n";
+	
+	
+	x = {2,2}; c=0;
+	qnewton(rosenbrock,drosenbrock,x,1e-3,1e-6);
+	cout << x << "\n" << c << "\n";
+
+	//x = {-1,-1}; c=0;
+	//qnewton(himmelblau,dhimmelblau,x,1e-3,1e-6);
+	//cout << x << "\n" << c << "\n";
+
 
 	return 0;
 }
