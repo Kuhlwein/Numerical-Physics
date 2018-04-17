@@ -31,6 +31,9 @@ int main() {
 	cout << "The integral of sin(x)^2 from 0 to 2pi is found to be: " 
 		<<  integral([](double x){return pow(sin(x),2);},0,2*M_PI) << "\n";
 	
+	cout << "The integral of x^2 from 0 to 1 is found to be: " 
+		<<  integral([](double x){return x*x;},0,1) << "\n";
+	
 	cout << "\n\n";
 	for(vector<double> v : data) {
 		for(double d : v) cout << d << "\t";
