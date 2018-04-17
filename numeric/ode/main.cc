@@ -28,6 +28,9 @@ int main() {
 	cout << "By solving y''(x)=-y-y'(x)/10 with y(0)=1 and y'(0)=0, we get y(2*pi)=" 
 		<< data2.back().at(1) << "\n";
 	
+	cout << "The integral of sin(x)^2 from 0 to 2pi is found to be: " 
+		<<  integral([](double x){return pow(sin(x),2);},0,2*M_PI) << "\n";
+	
 	cout << "\n\n";
 	for(vector<double> v : data) {
 		for(double d : v) cout << d << "\t";
@@ -38,6 +41,7 @@ int main() {
 		for(double d : v) cout << d << "\t";
 		cout << "\n";
 	}
+
 
 	return 0;
 }

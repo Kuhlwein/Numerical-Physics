@@ -1,3 +1,4 @@
+#include "ode.h"
 #include <armadillo>
 #include <vector>
 #include <functional>
@@ -38,4 +39,10 @@ vector<vector<double>> driver(double x,double b, vec y,
 		if(err>0) dx=dx*pow(tol/err,0.25)*0.95; else dx=2*dx;
 	}
 	return data;
+}
+
+double integral(function<double(double)> f, double a, double b) {
+	function<vec(double,vec)> df = [f](double x, vec y) {return vec {f(x)};};
+	auto d = driver(a,b,vec {0},rkstep12(df));
+	return d.back().back();
 }
