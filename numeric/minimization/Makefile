@@ -4,13 +4,16 @@ OBJ = main.o minimization.o ../lineq/qr_decomp.o
 
 .PHONY: clean all
 
-all : out.txt
+all : out.txt plot.pdf
 	cat out.txt
 
 out.txt : main
 	./main > out.txt
 
 main : $(OBJ)
+
+plot.pdf : plot.gpi out.txt
+	gnuplot plot.gpi
 
 clean:
 	find . -type f -executable -delete

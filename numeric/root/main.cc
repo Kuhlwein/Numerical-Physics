@@ -71,7 +71,7 @@ int main() {
 	a = {2, 2};c=0;
 	newton(rosenbrock,a,1e-3,1e-6);
 	printrosen(c,a);
-	a = {-1, -1};c=0;
+	a = {-4, -4};c=0;
 	newton(himmelblau,a,1e-3,1e-6);
 	printhimmel(c,a);
 	a= {1};c=0;
@@ -85,7 +85,7 @@ int main() {
 	a = {2, 2};c=0;
 	newton(rosenbrock,a,1e-3,1e-6,rosenbrockJ);
 	printrosen(c,a);
-	a = {-1, -1};c=0;
+	a = {-4, -4};c=0;
 	newton(himmelblau,a,1e-3,1e-6,himmelblauJ);
 	printhimmel(c,a);
 	a= {1};c=0;
@@ -99,7 +99,7 @@ int main() {
 	a = {2, 2};c=0;
 	newton_fancy(rosenbrock,a,1e-3,1e-6);
 	printrosen(c,a);
-	a = {-1, -1};c=0;
+	a = {-4, -4};c=0;
 	newton_fancy(himmelblau,a,1e-3,1e-6);
 	printhimmel(c,a);
 	a= {1};c=0;
@@ -113,7 +113,7 @@ int main() {
 	a = {2, 2};c=0;
 	newton_fancy(rosenbrock,a,1e-3,1e-6,rosenbrockJ);
 	printrosen(c,a);
-	a = {-1, -1};c=0;
+	a = {-4, -4};c=0;
 	newton_fancy(himmelblau,a,1e-3,1e-6,himmelblauJ);
 	printhimmel(c,a);
 	a= {1};c=0;

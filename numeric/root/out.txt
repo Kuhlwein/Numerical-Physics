@@ -11,8 +11,8 @@ Newtons method with back-tracking linesearch and numerical jacobian:
 
 	The minimum for the himmelblau function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2 is found,
 	using root-finding on the gradient in 25 function calls:
-	x=-0.270845
-	y=-0.923038
+	x=-3.77931
+	y=-3.28319
 
 	The square root of 2 is found, using root-finding on the function f(x)=x^2-2
 	in 13 function calls:
@@ -31,8 +31,8 @@ Newtons method with back-tracking linesearch and analytical jacobian:
 
 	The minimum for the himmelblau function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2 is found,
 	using root-finding on the gradient in 13 function calls:
-	x=-0.270845
-	y=-0.923038
+	x=-3.77931
+	y=-3.28319
 
 	The square root of 2 is found, using root-finding on the function f(x)=x^2-2
 	in 10 function calls:
@@ -51,8 +51,8 @@ Newtons method with fancy linesearch and numerical jacobian:
 
 	The minimum for the himmelblau function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2 is found,
 	using root-finding on the gradient in 25 function calls:
-	x=-0.270845
-	y=-0.923038
+	x=-3.77931
+	y=-3.28319
 
 	The square root of 2 is found, using root-finding on the function f(x)=x^2-2
 	in 13 function calls:
@@ -71,8 +71,8 @@ Newtons method with fancy linesearch and analytical jacobian:
 
 	The minimum for the himmelblau function f(x,y)=(x^2+y-11)^2+(x+y^2-7)^2 is found,
 	using root-finding on the gradient in 13 function calls:
-	x=-0.270845
-	y=-0.923038
+	x=-3.77931
+	y=-3.28319
 
 	The square root of 2 is found, using root-finding on the function f(x)=x^2-2
 	in 10 function calls:

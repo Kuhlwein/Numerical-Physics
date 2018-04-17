@@ -1,12 +1,139 @@
-   1.0000
-   1.0000
+Newtons method with backtracking line-search, with both user provided gradient and Hessian:
+	The minimum for the Rosenbrock function is found in 23 function calls to:
+	x: 1.00002
+	y: 1.00004
 
-23
-  -0.2708
-  -0.9231
+	The minimum for the Himmelblau function is found in 11 function calls to:
+	x: -3.77931
+	y: -3.2832
 
-49
-   1.0000
-   1.0000
+Quasi-Newtons method with Broyden's update, with user provided gradient:
+	The minimum for the Rosenbrock function is found in 72 function calls to:
+	x: 0.999999
+	y: 0.999998
 
-72
+	The minimum for the Himmelblau function is found in 20 function calls to:
+	x: -3.77931
+	y: -3.28319
+For comparison with different root finding algorithm applied to the same problem, see ../root/out.txt
+ In general it seems like minimization is better overall, although there are cases where root finding is slightly faster.
+
+Fit using quasi-Newton method with Broyden's update without userprovided anything:
+	Fitresult:
+	A: 3.55777
+	T: 3.2161
+	B: 1.22831
+
+0.23	4.64	0.42
+1.29	3.38	0.37
+2.35	3.01	0.34
+3.41	2.55	0.31
+4.47	2.29	0.29
+5.53	1.67	0.27
+6.59	1.59	0.26
+7.65	1.69	0.25
+8.71	1.38	0.24
+9.77	1.46	0.24
+
+
+0	4.78608
+0.1	4.67716
+0.2	4.57157
+0.3	4.46922
+0.4	4.37
+0.5	4.27381
+0.6	4.18057
+0.7	4.09019
+0.8	4.00257
+0.9	3.91764
+1	3.8353
+1.1	3.75549
+1.2	3.67812
+1.3	3.60312
+1.4	3.53041
+1.5	3.45994
+1.6	3.39161
+1.7	3.32538
+1.8	3.26118
+1.9	3.19895
+2	3.13861
+2.1	3.08013
+2.2	3.02344
+2.3	2.96848
+2.4	2.9152
+2.5	2.86356
+2.6	2.8135
+2.7	2.76496
+2.8	2.71792
+2.9	2.67232
+3	2.62811
+3.1	2.58525
+3.2	2.54371
+3.3	2.50344
+3.4	2.4644
+3.5	2.42656
+3.6	2.38987
+3.7	2.35431
+3.8	2.31984
+3.9	2.28642
+4	2.25403
+4.1	2.22262
+4.2	2.19218
+4.3	2.16267
+4.4	2.13407
+4.5	2.10634
+4.6	2.07946
+4.7	2.0534
+4.8	2.02814
+4.9	2.00365
+5	1.97992
+5.1	1.95691
+5.2	1.9346
+5.3	1.91298
+5.4	1.89202
+5.5	1.8717
+5.6	1.852
+5.7	1.8329
+5.8	1.81439
+5.9	1.79645
+6	1.77906
+6.1	1.7622
+6.2	1.74585
+6.3	1.73001
+6.4	1.71465
+6.5	1.69976
+6.6	1.68533
+6.7	1.67133
+6.8	1.65777
+6.9	1.64462
+7	1.63188
+7.1	1.61952
+7.2	1.60755
+7.3	1.59593
+7.4	1.58468
+7.5	1.57377
+7.6	1.56319
+7.7	1.55294
+7.8	1.543
+7.9	1.53337
+8	1.52403
+8.1	1.51498
+8.2	1.5062
+8.3	1.49769
+8.4	1.48944
+8.5	1.48145
+8.6	1.4737
+8.7	1.46619
+8.8	1.45891
+8.9	1.45185
+9	1.445
+9.1	1.43837
+9.2	1.43194
+9.3	1.4257
+9.4	1.41966
+9.5	1.4138
+9.6	1.40812
+9.7	1.40262
+9.8	1.39728
+9.9	1.39211
+10	1.38709

@@ -17,26 +17,31 @@ void newton(std::function<double(arma::vec)> f, std::function<arma::vec(arma::ve
 	} while(norm(Dx)>dx && norm(dfdx)>eps);
 }
 
-void qnewton(std::function<double(arma::vec)> f, std::function<arma::vec(arma::vec)> df,
-		arma::vec &x, double dx, double eps) {
+function<vec(vec)> gradient(function<double(vec)> f, double dx) {
+	return [f,dx](vec x) {
+		int n = x.n_rows; mat J(n,n,fill::eye); vec G(n);
+		for(int i=0; i<n; i++) G(i)=(f(x+J.col(i)*dx)-f(x))/dx;
+		return G;
+	};
+}
+
+void qnewton(std::function<double(arma::vec)> f, arma::vec &x, double dx, double eps,
+		std::function<arma::vec(arma::vec)> df=NULL) {
+	if(df==NULL) df=gradient(f,dx);
 	double fx=f(x); vec dfdx=df(x), Dx=-dfdx;
 	mat B = eye(x.n_rows,x.n_rows);
-
 	do {
 		Dx=-B*dfdx;
 		vec s = Dx;
-		
 		double fxs=f(x+s);
 		while (fxs>fx+0.1*dot(s,dfdx)) {
 			s/=2; fxs=f(x+s);
 			if(norm(s)<dx) {B=eye(x.n_rows,x.n_rows); break;}
 		}
-
 		vec dfdxs = df(x+s);
 		vec y = dfdxs-dfdx;
 		vec u = s-B*y;
 		B+=u*u.t()/dot(u,y);
-		
 		x+=s; fx=fxs; dfdx=dfdxs; Dx=-dfdx;
 	} while(norm(Dx)>dx && norm(dfdx)>eps);
 }

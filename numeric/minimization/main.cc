@@ -33,24 +33,51 @@ function<mat(vec)> Hhimmelblau = [](vec v) {
 	return mat {{4*(3*x*x+y-11)+2,4*(x+y)},{4*(x+y),2*y+4*(x+3*y*y-7)}};
 };
 
+double t[] = {0.23,1.29,2.35,3.41,4.47,5.53,6.59,7.65,8.71,9.77};
+double y[] = {4.64,3.38,3.01,2.55,2.29,1.67,1.59,1.69,1.38,1.46};
+double e[] = {0.42,0.37,0.34,0.31,0.29,0.27,0.26,0.25,0.24,0.24};
+int N = sizeof(t)/sizeof(t[0]);
+
+function<double(vec)> F = [&c,t,y,e,N](vec v) {
+	double A=v(0), T=v(1), B=v(2), sum=0; c++;
+	for(int i=0; i<N; i++) sum+=pow((A*exp(-t[i]/T)+B-y[i])/e[i],2);
+	return sum;
+};
+
 int main() {
+	cout << "Newtons method with backtracking line-search, with both user provided gradient and Hessian:\n";
 	vec x = {2,2};
 	newton(rosenbrock,drosenbrock,Hrosenbrock,x,1e-3,1e-6);
-	cout << x << "\n" << c << "\n";
+	cout << "\tThe minimum for the Rosenbrock function is found in " << c <<" function calls to:\n"
+		<< "\tx: " << x(0) << "\n\ty: " << x(1) << "\n";
 
-	x = {-1,-1}; c=0;
+	x = {-4,-4}; c=0;
 	newton(himmelblau,dhimmelblau,Hhimmelblau,x,1e-3,1e-6);
-	cout << x << "\n" << c << "\n";
+	cout << "\n\tThe minimum for the Himmelblau function is found in " << c 
+		<<" function calls to:\n" << "\tx: " << x(0) << "\n\ty: " << x(1) << "\n";
 	
 	
+	cout << "\nQuasi-Newtons method with Broyden's update, with user provided gradient:\n";
 	x = {2,2}; c=0;
-	qnewton(rosenbrock,drosenbrock,x,1e-3,1e-6);
-	cout << x << "\n" << c << "\n";
+	qnewton(rosenbrock,x,1e-3,1e-6,drosenbrock);
+	cout << "\tThe minimum for the Rosenbrock function is found in " << c <<" function calls to:\n"
+		<< "\tx: " << x(0) << "\n\ty: " << x(1) << "\n";
 
-	//x = {-1,-1}; c=0;
-	//qnewton(himmelblau,dhimmelblau,x,1e-3,1e-6);
-	//cout << x << "\n" << c << "\n";
+	x = {-4,-4}; c=0;
+	qnewton(himmelblau,x,1e-3,1e-6,dhimmelblau);
+	cout << "\n\tThe minimum for the Himmelblau function is found in " << c 
+		<<" function calls to:\n\tx: " << x(0) << "\n\ty: " << x(1) << "\n";
+	cout << "For comparison with different root finding algorithm applied to the same problem, see ../root/out.txt\n In general it seems like minimization is better overall, although there are cases where root finding is slightly faster.\n";
 
+	x = {1,1,1}; c=0;
+	qnewton(F,x,1e-3,1e-6);
+	cout << "\nFit using quasi-Newton method with Broyden's update without userprovided anything:\n"
+		<< "\tFitresult:\n\tA: " << x(0) << "\n\tT: " << x(1) << "\n\tB: " << x(2) << "\n\n";
+
+
+	for(int i=0; i<N; i++) cout << t[i] << "\t" << y[i] << "\t" << e[i] << "\n";
+	cout << "\n\n";
+	for(double i=0; i<10; i+=.1) cout << i << "\t" << x(0)*exp(-i/x(1))+x(2) << "\n";
 
 	return 0;
 }

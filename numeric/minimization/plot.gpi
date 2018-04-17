@@ -1,0 +1,10 @@
+set terminal pdf size 6,3
+set output "plot.pdf"
+set key right top
+
+set title "Least squares fit of f(x)=A exp(-t/T)+B"
+set xlabel "x"
+set ylabel "y"
+plot "out.txt" index 0 using ($1):($2):($3) with yerrorbars title "data",\
+"out.txt" index 1 using ($1):($2) with lines title "f(x)"
+
