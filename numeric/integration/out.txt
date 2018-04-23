@@ -1,0 +1,68 @@
+Adaptive24 using open quadratures
+	integrating sqrt(x) from 0 to 1:
+	Q=0.666667
+	Calls=4460
+	Estimated error=5.2871e-10
+	Actual error=	4.5064e-13
+
+	integrating 1/sqrt(x) from 0 to 1:
+	Q=2
+	Calls=2030460
+	Estimated error=5.50428e-10
+	Actual error=	1.39888e-14
+
+	integrating log(x)/sqrt(x) from 0 to 1:
+	Q=-4
+	Calls=8824620
+	Estimated error=5.61651e-10
+	Actual error=	7.54952e-15
+
+	integrating 4*sqrt(1-(1-x)^2) from 0 to 1:
+	Q=3.14159
+	Calls=9596
+	Estimated error=6.8843e-10
+	Actual error=	1.42109e-13
+
+	integrating 1/x^2 from 1 to inf:
+	Q=1
+	Calls=4
+	Estimated error=0
+	Actual error=	1.11022e-16
+
+	integrating exp(-x^2) from -inf to inf:
+	Q=1.77245
+	Calls=18960
+	Estimated error=4.7848e-10
+	Actual error=	1.54134e-11
+
+Adaptive24 using open quadratures and Clenshaw-Curtis
+	integrating sqrt(x) from 0 to 1:
+	Q=0.666667
+	Calls=7376
+	Estimated error=5.31991e-10
+	Actual error=	5.32907e-15
+
+	integrating 1/sqrt(x) from 0 to 1:
+	Q=2
+	Calls=6140
+	Estimated error=5.0005e-10
+	Actual error=	1.04361e-13
+
+	integrating 4*sqrt(1-(1-x)^2) from 0 to 1:
+	Q=3.14159
+	Calls=14016
+	Estimated error=5.0278e-10
+	Actual error=	1.33227e-15
+
+	integrating 1/x^2 from 1 to inf:
+	Q=1
+	Calls=7272
+	Estimated error=4.94457e-10
+	Actual error=	2.22045e-15
+
+	integrating exp(-x^2) from -inf to inf:
+	Q=1.77245
+	Calls=17920
+	Estimated error=4.85005e-10
+	Actual error=	3.20188e-11
+
