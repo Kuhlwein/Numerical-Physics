@@ -26,7 +26,14 @@ int main() {
 	c=0; a={0}; b={1};
 	x = plainmc(f_pi,a,b,1000000,err);
 	cout << "integrating 4*sqrt(1-(1-x)^2) from 0 to 1:\nQ=" << x << "\nCalls=" << c
-		<< "\nEstimated error=" << err << "\nActual error=" << abs(M_PI-x) << "\n\n";
+		<< "\nEstimated error=" << err << "\nActual error=" << abs(M_PI-x) << "\n\n\n";
+
+	for(int i=1e5; i<3e6; i+=1e5) {
+		c=0; a={0}; b={1};
+		x = plainmc(f_divsq,a,b,i,err);
+		cout << i << "\t" << err << "\t" << abs(2-x) << "\n";
+	}
+
 	
 	return 0;
 }
