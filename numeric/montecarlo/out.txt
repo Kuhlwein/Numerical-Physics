@@ -1,0 +1,18 @@
+integrating 1/[1-cos(x)cos(y)cos(z)]/pi^3 from x,y,z = 0 to pi:
+Q=1.40862
+Calls=1000000
+Estimated error=0.0140056
+Actual error=0.0154135
+
+integrating 1/sqrt(x) from 0 to 1:
+Q=2.00193
+Calls=1000000
+Estimated error=0.00393708
+Actual error=0.00193026
+
+integrating 4*sqrt(1-(1-x)^2) from 0 to 1:
+Q=3.14182
+Calls=1000000
+Estimated error=0.000893078
+Actual error=0.000223845
+
