@@ -29,6 +29,7 @@ function<vec(vec)> dsoftplus = [](vec x) {
 
 
 int main() {
+	cout << "Number recognition at the bottom!\n";
 	Network *n = new Network({1,2,1},{wav, f},{dwav, df});
 	vector<vec> in(50), out(50);
 	for (int i=0; i<50; i++) {
@@ -82,7 +83,7 @@ int main() {
 		return x;
 	};
 	function<void(vec)> disp = [](vec x) {
-		cout << reshape(x,5,7).t() << "\n";
+		cout << reshape(x,5,7).t();
 	};
 	
 	for(int i=0; i<9; i++) {
