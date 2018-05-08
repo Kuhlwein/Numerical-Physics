@@ -26,7 +26,15 @@ int main() {
 	c=0; a={0}; b={1};
 	x = plainmc(f_pi,a,b,1000000,err);
 	cout << "integrating 4*sqrt(1-(1-x)^2) from 0 to 1:\nQ=" << x << "\nCalls=" << c
-		<< "\nEstimated error=" << err << "\nActual error=" << abs(M_PI-x) << "\n\n\n";
+		<< "\nEstimated error=" << err << "\nActual error=" << abs(M_PI-x) << "\n\n";
+	
+	c=0; a={0}; b={1};
+	function<double(double,double)> f2d = [&c](double x, double y) {c++;return x*y;};
+	function<double(double)> fc = [](double x) {return 0;};
+	function<double(double)> fd = [](double x) {return x;};
+	x = mc2d(f2d,fc,fd,a[0],b[0],1000000,err);
+	cout << "integrating x*y from x=0 to 1 and y=0 to x:\nQ=" << x << "\nCalls=" << c
+		<< "\nEstimated error=" << err << "\nActual error=" << abs(1./8-x) << "\n\n\n";
 
 	for(int i=1e5; i<3e6; i+=1e5) {
 		c=0; a={0}; b={1};
