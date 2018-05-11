@@ -1,0 +1,17 @@
+set terminal pdf size 6,3
+set output "plot.pdf"
+set key left top
+
+set title "Erorr vs number of iterations"
+set xlabel "Iterations N"
+set ylabel "Error"
+f(x)=b/sqrt(x)
+f2(x)=a/sqrt(x)
+fit f(x) 'out.txt' index 1 using ($1):($3) via b
+fit f2(x) 'out.txt' index 1 using ($1):($2) via a
+
+plot "out.txt" index 1 using ($1):($2) title "Estimated error",\
+"out.txt" index 1 using ($1):($3) title "Actual error",\
+f2(x) title "a/sqrt(x) fit to estimated error",\
+f(x) title "a/sqrt(x) fit to actual error",\
+
