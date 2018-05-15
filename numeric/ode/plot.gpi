@@ -2,7 +2,7 @@ set terminal pdf size 6,3
 set output "plot.pdf"
 set key right bottom
 
-set title "Least squares fit of f(x)=A exp(-t/T)+B"
+set title "Solution to some differential equations"
 set xlabel "x"
 set ylabel "y"
 plot "out.txt" index 1 using ($1):($2) with lines title "y''(x)=-y",\
