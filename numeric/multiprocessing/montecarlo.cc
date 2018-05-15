@@ -1,9 +1,8 @@
 #include "montecarlo.h"
 #include <functional>
-#include <cstdlib>
 #include <vector>
-#include <cmath>
 #include <omp.h>
+#include <random>
 using namespace std;
 
 double plainmc(function<double(vector<double>)> f, vector<double> a, vector<double> b, int N,
@@ -14,7 +13,9 @@ double plainmc(function<double(vector<double>)> f, vector<double> a, vector<doub
 	
 	#pragma omp parallel for reduction (+:sum,sum2)
 	for(int i=0; i<N; i++) {
-		for(int i=0; i<a.size(); i++) {x[i]=a[i]+(double)(rand())/RAND_MAX*(b[i]-a[i]);};
+		mt19937::result_type seed = time(0);
+		thread_local auto real_rand = std::bind(std::uniform_real_distribution<double>(0,1),mt19937(seed));
+		for(int i=0; i<a.size(); i++) {x[i]=a[i]+real_rand()*(b[i]-a[i]);};
 		double fx=f(x);
 		sum+=fx; sum2+=fx*fx;
 	}
