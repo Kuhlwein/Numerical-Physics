@@ -5,11 +5,11 @@ set key right top
 set title "Neural network interpolation of sin(5x)exp(-10x^2)"
 set xlabel "x"
 set ylabel "y"
-plot "out.txt" index 0 using ($1):($2) with lines title "2 neuron-network",\
+plot "out.txt" index 0 using ($1):($2) with lines title "Neuron-network",\
 "out.txt" index 0 using ($1):($3) with lines title "Actual function",\
 
 set dgrid3d 50,50
 set xyplane at 0
-set title "Neural network interpolation of sin(5x)+cos(y)"
-splot "out.txt" index 1 using ($1):($2):($3) with lines title "6 neuron-network",\
+set title "Neural network interpolation of sin(5x)+cos(5y)"
+splot "out.txt" index 1 using ($1):($2):($3) with lines title "Neuron-network",\
 "out.txt" index 1 using ($1):($2):($4) with lines title "Actual function",\
