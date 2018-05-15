@@ -2604,7 +2604,7 @@ Number recognition at the bottom!
 
 
 The number 1 with a  single pixel flipped,
-recognized with a 2-layer, 10 neuron network:
+recognized with a 3-layer, 21 neuron network:
         0        0        0        0        0
         0        0        0   1.0000        0
         0        0   1.0000   1.0000        0
@@ -2615,7 +2615,7 @@ recognized with a 2-layer, 10 neuron network:
 Recognized as 1 with 93% certainty!
 
 The number 2 with a  single pixel flipped,
-recognized with a 2-layer, 10 neuron network:
+recognized with a 3-layer, 21 neuron network:
    1.0000        0        0        0        0
         0   1.0000   1.0000   1.0000        0
         0        0        0   1.0000        0
@@ -2626,7 +2626,7 @@ recognized with a 2-layer, 10 neuron network:
 Recognized as 2 with 66% certainty!
 
 The number 3 with a  single pixel flipped,
-recognized with a 2-layer, 10 neuron network:
+recognized with a 3-layer, 21 neuron network:
         0        0        0        0        0
         0   1.0000   1.0000   1.0000        0
         0        0        0   1.0000        0
@@ -2637,7 +2637,7 @@ recognized with a 2-layer, 10 neuron network:
 Recognized as 3 with 87% certainty!
 
 The number 4 with a  single pixel flipped,
-recognized with a 2-layer, 10 neuron network:
+recognized with a 3-layer, 21 neuron network:
         0        0        0        0        0
         0   1.0000        0   1.0000        0
         0   1.0000        0   1.0000        0
@@ -2648,7 +2648,7 @@ recognized with a 2-layer, 10 neuron network:
 Recognized as 4 with 93% certainty!
 
 The number 5 with a  single pixel flipped,
-recognized with a 2-layer, 10 neuron network:
+recognized with a 3-layer, 21 neuron network:
         0        0        0        0        0
         0   1.0000   1.0000   1.0000        0
         0   1.0000        0        0   1.0000
@@ -2659,7 +2659,7 @@ recognized with a 2-layer, 10 neuron network:
 Recognized as 9 with 99% certainty!
 
 The number 6 with a  single pixel flipped,
-recognized with a 2-layer, 10 neuron network:
+recognized with a 3-layer, 21 neuron network:
         0        0        0        0        0
         0   1.0000   1.0000   1.0000        0
         0   1.0000   1.0000        0        0
@@ -2670,7 +2670,7 @@ recognized with a 2-layer, 10 neuron network:
 Recognized as 6 with 53% certainty!
 
 The number 7 with a  single pixel flipped,
-recognized with a 2-layer, 10 neuron network:
+recognized with a 3-layer, 21 neuron network:
         0        0        0        0        0
         0   1.0000   1.0000   1.0000        0
         0        0        0   1.0000        0
@@ -2681,7 +2681,7 @@ recognized with a 2-layer, 10 neuron network:
 Recognized as 7 with 81% certainty!
 
 The number 8 with a  single pixel flipped,
-recognized with a 2-layer, 10 neuron network:
+recognized with a 3-layer, 21 neuron network:
         0        0        0        0        0
         0   1.0000   1.0000   1.0000        0
         0        0        0   1.0000        0
@@ -2692,7 +2692,7 @@ recognized with a 2-layer, 10 neuron network:
 Recognized as 2 with 91% certainty!
 
 The number 9 with a  single pixel flipped,
-recognized with a 2-layer, 10 neuron network:
+recognized with a 3-layer, 21 neuron network:
         0        0        0   1.0000        0
         0   1.0000   1.0000   1.0000        0
         0   1.0000        0   1.0000        0

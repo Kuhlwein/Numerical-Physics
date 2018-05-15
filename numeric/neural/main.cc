@@ -92,7 +92,7 @@ int main() {
 		int maxval = prob.max()*100;
 		int maxind = prob.index_max();
 		cout << "The number " << i+1 << " with a  single pixel flipped,\n"
-			<< "recognized with a 2-layer, 10 neuron network:\n";
+			<< "recognized with a 3-layer, 21 neuron network:\n";
 		disp(test);
 		cout << "Recognized as " << maxind+1 << " with " << maxval << "\% certainty!\n\n";
 	}
