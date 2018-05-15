@@ -29,7 +29,6 @@ function<vec(vec)> dsoftplus = [](vec x) {
 
 
 int main() {
-	cout << "Number recognition at the bottom!\n";
 	Network *n = new Network({1,5,1},{wav, f},{dwav, df});
 	vector<vec> in(50), out(50);
 	for (int i=0; i<50; i++) {
@@ -37,10 +36,6 @@ int main() {
 		in[i] = v; out[i]=sin(5*v)*exp(-10*v*v);
 	}
 	n->train(in,out,2,0.01,4);
-	for (double i=0; i<1; i+=0.01) {
-		vec e = n->eval({i});
-		cout << i << "\t" << e.at(0) << "\t" << sin(5*i)*exp(-10*i*i)<< "\n";
-	}
 	
 	Network *n2 = new Network({2,15,15,1},{wav,f, f},{dwav,df, df});
 	for (int i=0; i<50; i++) {
@@ -50,12 +45,6 @@ int main() {
 	n2->train(in,out,0.5,0.1,4);
 	n2->train(in,out,0.2,0.04,4);
 	n2->train(in,out,0.05,0.005,4);
-	cout << "\n\n";
-	for (double i=0; i<1; i+=0.02) for(double j=0; j<1; j+=0.02) {
-		vec e = n2->eval({i, j});
-		cout << i << "\t" << j << "\t" << e.at(0) << "\t" << sin(5*i)+cos(5*j)<< "\n";
-	}
-	cout << "\n\n";
 
 	#include "letters.h"
 	Network *n3 = new Network({35,7,7,7,10},{softplus, softplus,softplus, softmax},{dsoftplus,dsoftplus, dsoftplus, dsoftmax});
@@ -95,6 +84,16 @@ int main() {
 			<< "recognized with a 3-layer, 21 neuron network:\n";
 		disp(test);
 		cout << "Recognized as " << maxind+1 << " with " << maxval << "\% certainty!\n\n";
+	}
+	cout << "\n\n";
+	for (double i=0; i<1; i+=0.01) {
+		vec e = n->eval({i});
+		cout << i << "\t" << e.at(0) << "\t" << sin(5*i)*exp(-10*i*i)<< "\n";
+	}
+	cout << "\n\n";
+	for (double i=0; i<1; i+=0.02) for(double j=0; j<1; j+=0.02) {
+		vec e = n2->eval({i, j});
+		cout << i << "\t" << j << "\t" << e.at(0) << "\t" << sin(5*i)+cos(5*j)<< "\n";
 	}
 	return 0;
 }
