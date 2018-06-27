@@ -4,8 +4,7 @@
 using namespace std;
 using namespace arma;
 
-void newton(std::function<double(arma::vec)> f, std::function<arma::vec(arma::vec)> df,
-		std::function<arma::mat(arma::vec)> H, arma::vec &x, double dx, double eps) {
+void newton(function<double(vec)> f, function<vec(vec)> df, function<mat(vec)> H, vec &x, double dx, double eps) {
 	double fx=f(x); vec dfdx=df(x), Dx=-dfdx;
 	do {
 		mat B=H(x);
@@ -25,8 +24,7 @@ function<vec(vec)> gradient(function<double(vec)> f, double dx) {
 	};
 }
 
-void qnewton(std::function<double(arma::vec)> f, arma::vec &x, double dx, double eps,
-		std::function<arma::vec(arma::vec)> df=NULL) {
+void qnewton(function<double(vec)> f, vec &x, double dx, double eps, function<vec(vec)> df=NULL) {
 	if(df==NULL) df=gradient(f,dx);
 	double fx=f(x); vec dfdx=df(x), Dx=-dfdx;
 	mat B = eye(x.n_rows,x.n_rows);
@@ -45,6 +43,3 @@ void qnewton(std::function<double(arma::vec)> f, arma::vec &x, double dx, double
 		x+=s; fx=fxs; dfdx=dfdxs; Dx=-dfdx;
 	} while(norm(Dx)>dx && norm(dfdx)>eps);
 }
-
-
-
