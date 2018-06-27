@@ -1,4 +1,5 @@
 #include "minimization.h"
+#include "downhillsimplex.h"
 #include <iostream>
 #include <armadillo>
 #include <functional>
@@ -71,10 +72,25 @@ int main() {
 
 	x = {1,1,1}; c=0;
 	qnewton(F,x,1e-3,1e-6);
-	cout << "\nFit using quasi-Newton method with Broyden's update without userprovided anything:\n"
-		<< "\tFitresult:\n\tA: " << x(0) << "\n\tT: " << x(1) << "\n\tB: " << x(2) << "\n\n";
+	cout << "\nFit using quasi-Newton method with Broyden's update without userprovided anything in " << c << " function calls:\n" << "\tFitresult:\n\tA: " << x(0) << "\n\tT: " << x(1) << "\n\tB: " << x(2) << "\n";
+
+	cout << "\nDownhill simplex method:\n";
+	mat simplex = {{5,10,5},{10,5,5}}; c=0;
+	downhill_simplex(rosenbrock,simplex,1e-6);
+	cout << "\tThe minimum for the Rosenbrock function is found in " << c << " function calls to:\n" 
+		<< "\tx: " << simplex(0,0) << "\n\ty: " << simplex(1,0) << "\n";
+	
+	simplex = {{5,10,5},{10,5,5}};c=0;
+	downhill_simplex(himmelblau,simplex,1e-6);
+	cout << "\n\tThe minimum for the Himmelblau function is found in " << c << " function calls to:\n" << "\tx: " << simplex(0,0) << "\n\ty: " << simplex(1,0) << "\n";
+
+	simplex = {{5,10,5,5},{10,5,5,2},{1,2,3,4}};c=0;
+	downhill_simplex(F,simplex,1e-6);
+	cout << "\n\tThe fitresult is found in " << c << " function calls to:\n" << "\tA: " << simplex(0,0) << "\n\tT: " << simplex(1,0) << "\n\tB: " << simplex(2,0) << "\n";
 
 
+
+	cout << "\n";
 	for(int i=0; i<N; i++) cout << t[i] << "\t" << y[i] << "\t" << e[i] << "\n";
 	cout << "\n\n";
 	for(double i=0; i<10; i+=.1) cout << i << "\t" << x(0)*exp(-i/x(1))+x(2) << "\n";

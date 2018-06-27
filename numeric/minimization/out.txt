@@ -18,11 +18,25 @@ Quasi-Newtons method with Broyden's update, with user provided gradient:
 For comparison with different root finding algorithm applied to the same problem, see ../root/out.txt
  In general it seems like minimization is better overall, although there are cases where root finding is slightly faster.
 
-Fit using quasi-Newton method with Broyden's update without userprovided anything:
+Fit using quasi-Newton method with Broyden's update without userprovided anything in 270 function calls:
 	Fitresult:
 	A: 3.55777
 	T: 3.2161
 	B: 1.22831
+
+Downhill simplex method:
+	The minimum for the Rosenbrock function is found in 566 function calls to:
+	x: 1
+	y: 1
+
+	The minimum for the Himmelblau function is found in 137 function calls to:
+	x: -2.80512
+	y: 3.13131
+
+	The fitresult is found in 514 function calls to:
+	A: 3.55702
+	T: 3.20543
+	B: 1.23193
 
 0.23	4.64	0.42
 1.29	3.38	0.37

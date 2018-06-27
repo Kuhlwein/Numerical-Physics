@@ -1,6 +1,6 @@
 CXXFLAGS = -std=c++11 -Wall -O3
 LDLIBS = -lstdc++ -lm -larmadillo
-OBJ = main.o minimization.o ../lineq/qr_decomp.o
+OBJ = main.o minimization.o ../lineq/qr_decomp.o downhillsimplex.o
 
 .PHONY: clean all
 
